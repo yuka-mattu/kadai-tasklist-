@@ -7,11 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "messages")
-public class Content {
+@NamedQueries({
+    @NamedQuery(
+            name = "getAlltasks",
+            query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
+            )
+})
+@Table(name = "tasks")
+public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +28,8 @@ public class Content {
     @Column(name = "content", length = 255, nullable = false)
     private String content;
 
-    @Column(name = "check", length = 255, nullable = false)
-    private String check;
+    @Column(name = "check_col", length = 255, nullable = false)
+    private String check_col;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
@@ -37,20 +45,20 @@ public class Content {
         this.id = id;
     }
 
-    public String getTitle() {
+    public String getContent() {
         return content;
     }
 
-    public void setTitle(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public String getContent() {
-        return check;
+    public String getCheck_col() {
+        return check_col;
     }
 
-    public void setContent(String check) {
-        this.check = check;
+    public void setCheck(String check_col) {
+        this.check_col = check_col;
     }
 
     public Timestamp getCreated_at() {
