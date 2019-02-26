@@ -57,7 +57,7 @@ public class Task {
         return check_col;
     }
 
-    public void setCheck(String check_col) {
+    public void setCheck_col(String check_col) {
         this.check_col = check_col;
     }
 
