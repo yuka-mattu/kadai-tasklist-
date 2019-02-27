@@ -18,7 +18,7 @@
 		</ul>
 		<div id="pagination">
 			（全 ${task_count} 件）<br />
-			<c:forEach var="i" begin="1" end="${((task_count - 1) / 10) + 1}" step="1">
+			<c:forEach var="i" begin="1" end="${((task_count - 1) / 5) + 1}" step="1">
 				<c:choose>
 					<c:when test="${i == page}">
 						<c:out value="${i}" />&nbsp;

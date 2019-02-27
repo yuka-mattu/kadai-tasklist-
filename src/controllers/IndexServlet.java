@@ -43,10 +43,10 @@ public class IndexServlet extends HttpServlet {
         } catch (NumberFormatException e) {
         }
 
-        // 最大件数と開始位置を指定してメッセージを取得
+        // 最大件数と開始位置を指定してタスクを取得
         List<Task> tasks = em.createNamedQuery("getAllTask", Task.class)
-                .setFirstResult(10 * (page - 1))
-                .setMaxResults(10)
+                .setFirstResult(5 * (page - 1))
+                .setMaxResults(5)
                 .getResultList();
 
         // 全件数を取得

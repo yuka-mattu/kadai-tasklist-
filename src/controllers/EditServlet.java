@@ -39,12 +39,12 @@ public class EditServlet extends HttpServlet {
         Task m = em.find(Task.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
-        // メッセージデータが存在しているときのみ
-        // メッセージ情報とセッションIDをリクエストスコープに登録
+        // タスクデータが存在しているときのみ
+        // タスク情報とセッションIDをリクエストスコープに登録
         request.setAttribute("tasks", m);
         request.setAttribute("_token", request.getSession().getId());
 
-        // メッセージIDをセッションスコープに登録
+        // タスクIDをセッションスコープに登録
        if(m !=null){
         request.getSession().setAttribute("tasks_id", m.getId());
        }
